@@ -29,7 +29,10 @@ namespace WinterWorkShop.Cinema.API.Controllers
                 result.Add(new MovieResponse
                 {
                     Id = movie.Id,
-                    Name = movie.Name
+                    Name = movie.Name,
+                    Genre = movie.Genre,
+                    Duration = movie.Duration,
+                    Rating = movie.Rating
                 });
             }
 
@@ -54,7 +57,10 @@ namespace WinterWorkShop.Cinema.API.Controllers
             var result = new MovieResponse()
             {
                 Id = id,
-                Name = movie.Name
+                Name = movie.Name,
+                Genre = movie.Genre,
+                Duration = movie.Duration,
+                Rating = movie.Rating
             };
 
             return result;
