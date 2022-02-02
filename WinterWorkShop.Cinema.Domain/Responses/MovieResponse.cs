@@ -7,5 +7,6 @@
         public string Genre { get; set; }
         public int Duration { get; set; }
         public double Rating { get; set; }
+        public List<ProjectionResponse> Projections { get; set; }   
     }
 }

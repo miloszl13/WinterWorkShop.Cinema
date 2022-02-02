@@ -6,5 +6,6 @@ namespace WinterWorkShop.Cinema.Data.Repositories
     {
         List<ProjectionModel> GetAllProjections();
         ProjectionModel? GetProjectionByID(int id);
+        List<ProjectionModel>? GetProjectionsByMovieId(int id);
     }
 }
