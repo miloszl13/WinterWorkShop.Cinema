@@ -1,4 +1,5 @@
 ﻿using WinterWorkShop.Cinema.Data.Models;
+using WinterWorkShop.Cinema.Domain.Responses;
 
 namespace WinterWorkShop.Cinema.Data.Repositories
 {
@@ -18,17 +19,8 @@ namespace WinterWorkShop.Cinema.Data.Repositories
         }
         public List<ProjectionModel>? GetProjectionsByMovieId(int id)
         {
-            List<ProjectionModel> projectionsbymovieid = new List<ProjectionModel>();
-            foreach (ProjectionModel p in database.Projections)
-            {
-                if (p.MovieID == id)
-                {
-
-                    projectionsbymovieid.Add(p);
-                }
-            }
-
-            return projectionsbymovieid;
+            var projections = database.Projections.Where(p => p.MovieID == id).ToList();
+            return projections;
         }
     }
 }
