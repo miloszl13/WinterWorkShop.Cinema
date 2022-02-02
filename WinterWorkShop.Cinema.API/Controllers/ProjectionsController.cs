@@ -61,6 +61,38 @@ namespace WinterWorkShop.Cinema.API.Controllers
 
             return result;
         }
+        [HttpGet("movie/{id}")]
+        public ActionResult<List<ProjectionResponse>> GetProjectionByMovieId(int id)
+        {
+            var projections = projectionn.GetProjectionsByMovieId(id);
+
+
+            if (projections == null)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel()
+                {
+                    ErrorMessage = Messages.MOVIE_DOES_NOT_HAVE_PROJECTIONS,
+                    StatusCode = System.Net.HttpStatusCode.NotFound
+                };
+                return NotFound(errorResponse);
+            }
+            var result = new List<ProjectionResponse>();
+            
+            foreach (var projection in projections)
+            {
+                result.Add(new ProjectionResponse
+                {
+                    ProjectionId = projection.ProjectionId,
+                    Date = projection.Date,
+                    AuditoriumName = projection.AuditoriumName,
+                    MovieID=projection.MovieID
+                });
+            }
+
+
+
+            return result;
+        }
 
     }
 }

@@ -7,5 +7,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
         List<MovieModel> GetAllMovies();
 
         MovieModel? GetMovieById(int id);
+
+        
     }
 }

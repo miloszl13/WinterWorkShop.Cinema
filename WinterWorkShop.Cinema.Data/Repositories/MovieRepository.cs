@@ -5,6 +5,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
     public class MovieRepository : IMovieRepository
     {
         public Database Database = new Database();
+        
 
         public List<MovieModel> GetAllMovies()
         {
@@ -17,5 +18,7 @@ namespace WinterWorkShop.Cinema.Data.Repositories
 
             return movie;
         }
+
+        
     }
 }
