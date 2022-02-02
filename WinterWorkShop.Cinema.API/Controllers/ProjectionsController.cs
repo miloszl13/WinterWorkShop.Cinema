@@ -66,8 +66,18 @@ namespace WinterWorkShop.Cinema.API.Controllers
         {
             var projections = _projectionRepository.GetProjectionsByMovieId(id);
 
-
+          
             if (projections == null)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel()
+                {
+                    ErrorMessage = Messages.MOVIE_DOES_NOT_EXIST,
+                    StatusCode = System.Net.HttpStatusCode.NotFound
+                };
+                return NotFound(errorResponse);
+            }
+
+            if (!projections.Any())
             {
                 ErrorResponseModel errorResponse = new ErrorResponseModel()
                 {
